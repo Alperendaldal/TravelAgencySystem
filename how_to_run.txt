@@ -1,0 +1,49 @@
+Setting up Python, VSCode, and MySQL and Creating a Website with Django
+Step 1: Install the Required Software
+
+Python: Download and install the appropriate Python version for your operating system from https://www.python.org/downloads/.
+
+VSCode: Download and install VSCode from https://code.visualstudio.com/download.
+
+MySQL: Download and install MySQL Server from https://dev.mysql.com/downloads/mysql/. Make sure to set a password for the root user during installation.
+
+Step 2: Install the Required Libraries
+
+Open the VSCode shell.
+
+Run the following commands in sequence:
+
+pip install Django
+pip install mysql-connector-python
+pip install django-mysql
+
+Step 3: Create the Database
+
+Open the MySQL command line.
+
+Create a database named djangodbHW using the following command:
+
+SQL
+CREATE DATABASE djangodbHW;
+
+Step 4: Populate the Database
+
+Navigate to the directory containing the yedek.sql file.
+
+Restore the database from the backup using the following command:
+
+mysqldump -u root -p djangodbHW < backup.sql
+
+Open the settings.py file.
+
+Update the database password in the DATABASES setting.
+
+Step 5: Run the Website
+
+Navigate to the catalog directory.
+
+Run the website using the following command:
+
+python manage.py runserver
+
+Access the website by clicking on the link displayed in the console.
