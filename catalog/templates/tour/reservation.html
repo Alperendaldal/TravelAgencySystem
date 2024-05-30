@@ -1,0 +1,43 @@
+{% extends 'layout.html'%}
+{%load static%}
+{%load humanize%}
+
+{%block content%}
+{%if user.is_authenticated %}
+
+
+
+
+<div class="row">
+    <div class="col md-6 mx-auto">    
+        <div class="card">
+            <div class="card-header bg-primary text-white"><h4>Make reservation</h4>
+                </div>
+                <div class="card-body">
+                    <form action="{%url 'make_reservation' tour.id%}"  method="POST">
+                        {% csrf_token  %}
+                        <div class="form-group">
+                            <label for="Reservation_Note">Reservation Note</label>
+                            <input type="text" name="Reservation_Note" class="form-control" required>
+                            <input type="hidden" name="Customer_id" value={{user.id}} required>
+                            <input type="hidden" name="Reservation_Trip" value={{tour.id}} required>
+                            <input type="hidden" name="Reservation_Employee" value={{tour.Trip_Employee.id}} required>    
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    </form>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+{%else%}
+<p>Please login</p>
+{%endif%}
+{% endblock %}
+    

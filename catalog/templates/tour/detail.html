@@ -1,0 +1,37 @@
+{% extends 'layout.html'%}
+{%load static%}
+{%load humanize%}
+
+{%block content%}
+
+<div class="row">
+        <div class="col-md-3">
+            <img class="card-img" src="{%static tour.get_image_path%}" alt="">
+          
+        </div>
+        
+    <div class="md-9">
+            <h1>{{ tour.Trip_Name }}</h1>
+            <hr>
+            <p>
+              
+              Trip Date: {{tour.Created_Date}}
+              
+            </p>
+            <p>Trip type: {{tour.Trip_Type}}</p>
+            <p>Trip transportation: {{tour.Trip_Transportation}}</p>
+            <p>Trip Accomadation: {{tour.Trip_Accomadation}}</p>
+            <p>Trip Capacity: {{tour.Trip_Capacity}}</p>
+            <p>Trip Price {{tour.Trip_Price}} </p>
+            <p>
+                Trip Details: {{tour.Trip_Detail}}
+            </p>
+            {%if user.is_authenticated %}
+            <div class="card-title"><a href="{%url 'reservation' tour.id %}">Make Reservation</a> </div>
+            {%else%}
+            <P>Plaese login</P>
+            {%endif%}
+    </div>
+</div>
+{% endblock %}
+    

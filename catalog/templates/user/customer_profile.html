@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block content %}
+<h1>Your Profile</h1>
+<div class="profile-info">
+  <p><strong>Phone Number:</strong> {{ customer_info.Tel_No }}</p>
+  <p><strong>Emergency Number:</strong> {{ customer_info.Emergency_Number }}</p>
+  <p><strong>Birthday:</strong> {{ customer_info.Birthday }}</p>
+  <p><strong>Gender:</strong> {{ customer_info.Gender }}</p>
+</div>
+<a href="{% url 'customer_info_update' %}" class="btn btn-primary">Update Information</a>
+{% endblock %}
